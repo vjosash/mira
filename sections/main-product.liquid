@@ -67,13 +67,17 @@
         class="product__info-container{% if section.settings.enable_sticky_info %} product__column-sticky{% endif %}"
       >
         {%- assign product_form_id = 'product-form-' | append: section.id -%}
-
         {%- for block in section.blocks -%}
           {%- case block.type -%}
             {%- when '@app' -%}
               {% render block %}
-            {%- when 'custom-variants' -%}
-              {% render 'custom-variants' %}
+              {%- when 'custom_variants' -%}
+                {% if block.settings.show_custom_variants %}
+                  {% render 'custom-variants',
+                    product: product,
+                    title: block.settings.custom_variant_title
+                  %}
+                {% endif %}
             {%- when 'text' -%}
               <p
                 class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
@@ -616,7 +620,7 @@
       ]
     },
     {
-      "type": "custom-variants",
+      "type": "custom_variants",
       "name": "Custom variants",
       "settings": [
         {
@@ -624,6 +628,12 @@
           "id": "show_custom_variants",
           "label": "Show custom variants",
           "default": true
+        },
+        {
+          "type": "text",
+          "id": "custom_variant_title",
+          "label": "Custom variant title",
+          "default": "Other option:"
         }
       ]
     },
