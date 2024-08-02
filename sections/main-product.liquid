@@ -72,6 +72,8 @@
           {%- case block.type -%}
             {%- when '@app' -%}
               {% render block %}
+            {%- when 'custom-variants' -%}
+              {% render 'custom-variants' %}
             {%- when 'text' -%}
               <p
                 class="product__text inline-richtext{% if block.settings.text_style == 'uppercase' %} caption-with-letter-spacing{% elsif block.settings.text_style == 'subtitle' %} subtitle{% endif %}"
@@ -610,6 +612,18 @@
           ],
           "default": "body",
           "label": "t:sections.main-product.blocks.text.settings.text_style.label"
+        }
+      ]
+    },
+    {
+      "type": "custom-variants",
+      "name": "Custom variants",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_custom_variants",
+          "label": "Show custom variants",
+          "default": true
         }
       ]
     },
