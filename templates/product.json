@@ -17,17 +17,11 @@
           "settings": {
           }
         },
-        "vendor": {
-          "type": "text",
+        "custom_variants_ykeXGC": {
+          "type": "custom_variants",
           "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "body"
-          }
-        },
-        "custom_variants_FpRRNw": {
-          "type": "custom-variants",
-          "settings": {
-            "show_custom_variants": true
+            "show_custom_variants": true,
+            "custom_variant_title": "Color"
           }
         },
         "variant_picker": {
@@ -69,8 +63,7 @@
       },
       "block_order": [
         "title",
-        "vendor",
-        "custom_variants_FpRRNw",
+        "custom_variants_ykeXGC",
         "variant_picker",
         "quantity_selector",
         "price",
