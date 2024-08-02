@@ -1,0 +1,20 @@
+{{ 'custom-variants.css' | asset_url | stylesheet_tag }}
+
+{% if product.metafields.custom.product_options %}
+    <div class="product-options" role="navigation" aria-label="Product Options">
+        <h3>{{ title }}</h3>
+        <div>
+            {% for prod in product.metafields.custom.product_options.value %}   
+                <a href="{{ prod.url }}" rel="noopener noreferrer"> 
+                    {% if prod.metafields.custom.image.value != blank %}
+                        <img src="{{ prod.metafields.custom.image.value | image_url }}" alt="Product Color" class="swatches"/>
+                    {% elsif prod.metafields.custom.color.value != blank %}
+                        <span class ="swatches color-swatches" style="background-color:{{ prod.metafields.custom.color.value }}"></span>
+                    {% elsif prod.metafields.custom.text.value != blank %}
+                        <span class="swatches">{{ prod.metafields.custom.text.value  }}</span>
+                    {% endif %}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

@@ -1,3 +1,12 @@
+/*
+* ------------------------------------------------------------
+* IMPORTANT: The contents of this file are auto-generated.
+*
+* This file may be updated by the Shopify admin theme editor
+* or related systems. Please exercise caution as any changes
+* made to this file may be overwritten.
+* ------------------------------------------------------------
+*/
 {
   "sections": {
     "main": {
@@ -13,6 +22,12 @@
           "settings": {
             "text": "{{ product.vendor }}",
             "text_style": "body"
+          }
+        },
+        "custom_variants_FpRRNw": {
+          "type": "custom-variants",
+          "settings": {
+            "show_custom_variants": true
           }
         },
         "variant_picker": {
@@ -55,6 +70,7 @@
       "block_order": [
         "title",
         "vendor",
+        "custom_variants_FpRRNw",
         "variant_picker",
         "quantity_selector",
         "price",
